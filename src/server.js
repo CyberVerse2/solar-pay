@@ -21,8 +21,8 @@ const appName = ENVIRONMENT.APP.NAME;
 /**
  * App Security
  */
-app.use(helmet());
 app.use(cors({ origin: '*' }));
+app.use(helmet());
 app.use(express.json({limit: "50mb"}));
 app.use(express.urlencoded({limit: "50mb", extended: true}));
 app.disable("x-powered-by");
