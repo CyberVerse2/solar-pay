@@ -18,7 +18,8 @@ export const httpLoginUser = catchAsync(async (req, res) => {
   if (!(email && password)) {
     throw new FormError('name and email required');
   }
-  const existingUser = await loginUser(email);  return res
+  const existingUser = await loginUser(email, password);
+  return res
     .status(200)
     .json({ message: 'Login Successful', data: existingUser });
 });
