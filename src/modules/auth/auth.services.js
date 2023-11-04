@@ -34,15 +34,14 @@ async function createNewUser(name, email, password) {
 }
 
 async function loginUser(email, password) {
-  console.log(email);
   const authenticatedUser = await findUser(email);
-  console.log(authenticatedUser);
   if (!authenticatedUser) {
     throw new AuthenticationError(
       'User does not exist. Please register an account'
     );
   }
-  if (authenticatedUser.password !== password) {
+  console.log(authenticatedUser.password, password);
+  if (authenticatedUser.password != password) {
     throw new NotFoundError('Incorrect email or password');
   }
   const token = jwt.sign(
